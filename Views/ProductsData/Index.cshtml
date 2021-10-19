@@ -1,0 +1,66 @@
+﻿@model IEnumerable<CompanyWebSiteCore.ModelsView.ProductsDataModelView>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>المنتجات</h1>
+
+<p>
+    <a asp-action="Create">جديد</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductNameEn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductDescreption)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductDescreptionEn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Companyid)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductNameEn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDescreption)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDescreptionEn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Companyid)
+            </td>
+            <td>
+                @Html.ActionLink("تعديل", "Edit", new { id=item.id }) |
+                @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                @Html.ActionLink("حذف", "Delete", new { id=item.id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,64 @@
+﻿@model CompanyWebSiteCore.ModelsView.CustomerssDataModelView
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ 
+
+<h4>إضافة عميل</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="id" class="control-label"></label>
+                <input asp-for="id" class="form-control" />
+                <span asp-validation-for="id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerName" class="control-label"></label>
+                <input asp-for="CustomerName" class="form-control" />
+                <span asp-validation-for="CustomerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerNameEn" class="control-label"></label>
+                <input asp-for="CustomerNameEn" class="form-control" />
+                <span asp-validation-for="CustomerNameEn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerDescreption" class="control-label"></label>
+                <input asp-for="CustomerDescreption" class="form-control" />
+                <span asp-validation-for="CustomerDescreption" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerDescreptionEn" class="control-label"></label>
+                <input asp-for="CustomerDescreptionEn" class="form-control" />
+                <span asp-validation-for="CustomerDescreptionEn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Companyid" class="control-label"></label>
+                <select class="selectpicker form-control" asp-for="Companyid" asp-items="Model.Companys"></select>
+                <span asp-validation-for="Companyid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerImg" class="control-label"></label>
+                <input type="file" name="CustomerImg" asp-for="CustomerImg" class="form-control" />
+                <span asp-validation-for="CustomerImg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">رجوع</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

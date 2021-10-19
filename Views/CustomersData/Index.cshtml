@@ -1,0 +1,73 @@
+﻿@model IEnumerable<CompanyWebSiteCore.ModelsView.CustomerssDataModelView>
+@inject CompanyWebSiteCore.Resources.LocalizationService _localizer
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>العملاء</h1>
+
+<p>
+    <a asp-action="Create">جديد</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerNameEn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerDescreption)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerDescreptionEn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerImgName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Companyid)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerNameEn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerDescreption)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerDescreptionEn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerImgName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Companyid)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                    @Html.ActionLink(@_localizer.GetLocalizedHtmlString("DeleteBtn"), "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

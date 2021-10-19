@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+@inject CompanyWebSiteCore.Resources.LocalizationService _localizer
+<html dir="@(System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft? "rtl" : "ltr")">
+<head>
+
+
+    <meta charset="utf-8" />
+    <meta name="description" content="programing company">
+    <meta name="keywords" content="program, CSS, hr,accounting,اعمال,منتجات">
+    <meta name="author" content="mohamed">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <title>Mamba Bootstrap Template - Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets2/" rel="icon">
+    <link href="assets2/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" />
+
+
+    <!-- Vendor CSS Files -->
+
+    <link href="assets2/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="assets2/vendor/aos/aos.css" rel="stylesheet">
+    @if (System.Threading.Thread.CurrentThread.CurrentCulture.Name == "en")
+    {
+        <link href="assets2/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    }
+    else
+    {
+        <link href="assets2/vendor/bootstrap/css/bootstrap.rtl.min.css" rel="stylesheet" />
+
+    }
+    <script src="https://kit.fontawesome.com/5c2ee5c86a.js" crossorigin="anonymous"></script>
+    <link href="assets2/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="assets2/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets2/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets2/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+
+    <!-- Template Main CSS File -->
+    <link href="assets2/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: Mamba - v4.5.0
+    * Template URL: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+<body>
+
+    <!-- ======= Top Bar ======= -->
+    <section id="topbar" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-center justify-content-md-between">
+            <div class="contact-info d-flex align-items-center">
+                <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">info@example.com</a>
+                <i class="bi bi-phone-fill phone-icon"></i> +1 5589 55488 55
+            </div>
+            <div class="social-links d-none d-md-block">
+                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex align-items-center">
+
+            <div class="logo me-auto">
+                <h1 id="hcompName"><a href="index.html">Mamba</a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                @*<a href="index.html"><img src="assets/img/slide/slide-1.jpg" alt="" class="img-fluid"></a>*@
+            </div>
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="#">@_localizer.GetLocalizedHtmlString("homeMenu")</a></li>
+                    <li><a class="nav-link scrollto" href="#about">@_localizer.GetLocalizedHtmlString("aboutMenu")</a></li>
+                    <li><a class="nav-link scrollto" href="#services">@_localizer.GetLocalizedHtmlString("servicesMenu")</a></li>
+                    <li><a class="nav-link scrollto" href="#portfolio">@_localizer.GetLocalizedHtmlString("productsMenu")</a></li>
+                    <li><a class="nav-link scrollto" href="#clients">@_localizer.GetLocalizedHtmlString("clientsMenu")</a></li>
+                    <li><a class="nav-link scrollto" href="#team">@_localizer.GetLocalizedHtmlString("team")</a></li>
+                    <li><a class="nav-link scrollto" href="#contact">@_localizer.GetLocalizedHtmlString("contactMenu")</a></li>
+                    <li class="dropdown">
+                        @await Html.PartialAsync("_SetLanguagePartial")
+                    </li>
+
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+        </div>
+    </header><!-- End Header -->
+
+    @RenderBody()
+
+
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 footer-info">
+                        <h3 id="compName">Mamba</h3>
+                        <p id="">
+
+                            <strong>@_localizer.GetLocalizedHtmlString("Address")</strong>: <h6 id="adressID"></h6><br>
+                            <strong>@_localizer.GetLocalizedHtmlString("Phone")</strong>: <h6 id="PhoneID"></h6> <br>
+                            <strong>@_localizer.GetLocalizedHtmlString("Email")</strong>:<h6 id="EmailID"></h6> <br>
+                        </p>
+                        @*<div class="social-links mt-3">
+                <a href="#" id="atwitter" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" id="afacebook" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" id="ainstagram" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" id="alinkedin" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>*@
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 footer-links">
+                        <h4>@_localizer.GetLocalizedHtmlString("Links")</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">@_localizer.GetLocalizedHtmlString("homeMenu")</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#about">@_localizer.GetLocalizedHtmlString("aboutMenu")</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#services">@_localizer.GetLocalizedHtmlString("servicesMenu")</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#portfolio">@_localizer.GetLocalizedHtmlString("productsMenu")</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#clients">@_localizer.GetLocalizedHtmlString("clientsMenu")</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#team">@_localizer.GetLocalizedHtmlString("team")</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#contact">@_localizer.GetLocalizedHtmlString("contactMenu")</a></li>
+
+
+
+                        </ul>
+                    </div>
+
+                    @*<div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+        </div>*@
+
+                    <div class="col-lg-4 col-md-6 footer-newsletter">
+                        <h4>@_localizer.GetLocalizedHtmlString("aboutMenu")</h4>
+                        <p id="aboutId"></p>
+                        <form action="" method="post">
+                            <input type="email" name="email"><input type="submit" value="Subscribe">
+                        </form>
+
+                    </div>
+                    <div class="social-links mt-3 text-center">
+                        <a href="#" id="atwitter" class="twitter"><i class="bx bxl-twitter"></i></a>
+                        <a href="#" id="afacebook" class="facebook"><i class="bx bxl-facebook"></i></a>
+                        <a href="#" id="ainstagram" class="instagram"><i class="bx bxl-instagram"></i></a>
+                        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                        <a href="#" id="alinkedin" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong><span>@ViewData["Title"]</span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/ -->
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+
+    <script src="assets2/vendor/aos/aos.js"></script>
+    <script src="assets2/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets2/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets2/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets2/vendor/php-email-form/validate.js"></script>
+    <script src="assets2/vendor/purecounter/purecounter.js"></script>
+    <script src="assets2/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="assets2/js/main.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+
+
+</html>
+<script>
+    $(document).ready(function () {
+
+        $.ajax({
+            url: '/CompanyData/GetConpanyLogo',
+            type: 'GET',
+            success: function (data) {
+                debugger
+                //$("#ConpanyLogo").attr("src", "/CompanyImages/" + data.LogoImage);
+
+                $("#atwitter").attr("href", data.TwitterLink);
+                $("#afacebook").attr("href", data.FaceBookLink);
+                $("#ainstagram").attr("href", data.InstgramLink);
+                $("#alinkedin").attr("href", data.LinkedinLink);
+
+                $("#compName").html(data.CompanyName);
+                $("#adressID").append(data.Address);
+                $("#PhoneID").append(data.Phone);
+                $("#MobileID").append(data.Mobile);
+                $("#FaxID").append(data.Fax);
+                $("#EmailID").append(data.Email);
+                $("#aboutId").append(data.FooterAboutDescreption);
+
+
+                if (document.documentElement.dir.toLowerCase() == "ltr") {
+                    $("#compName").html(data.CompanyNameEn);
+                    $("#hcompName").html(data.CompanyNameEn);
+                }
+                if (document.documentElement.dir.toLowerCase() == "rtl") {
+                    $("#compName").html(data.CompanyName);
+                    $("#hcompName").html(data.CompanyName);
+                }
+
+            },
+
+
+        });
+    });
+
+</script>
+
+@*<script>
+        $(document).ready(function () {
+
+            $.ajax({
+                url: '/CompanyData/GetConpanyLogo',
+                type: 'GET',
+                success: function (data) {
+                    debugger
+                    $("#ConpanyLogo").attr("src", "/CompanyImages/" + data.LogoImage);
+                },
+
+
+            });
+        });
+
+</script>*@
+

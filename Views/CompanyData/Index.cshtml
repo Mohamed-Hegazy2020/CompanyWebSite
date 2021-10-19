@@ -1,0 +1,73 @@
+﻿@model IEnumerable<CompanyWebSiteCore.ModelsView.CompanyDataModelView>
+@inject CompanyWebSiteCore.Resources.LocalizationService _localizer
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@_localizer.GetLocalizedHtmlString("CompanyDataBtn")</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-info">@_localizer.GetLocalizedHtmlString("CreateBtn")</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LogoImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BackGImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    <img src="~/CompanyImages/@item.LogoImage" style="height:60px; width: 60px;" class="img-thumbnail" />
+                </td>
+                <td>
+                    <img src="~/CompanyImages/@item.BackGImage" style="height: 60px; width: 60px;" class="img-thumbnail" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.ActionLink(@_localizer.GetLocalizedHtmlString("UpdateBtn"), "Edit", new { id = item.id }) |                   
+                    @Html.ActionLink(@_localizer.GetLocalizedHtmlString("DeleteBtn"), "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

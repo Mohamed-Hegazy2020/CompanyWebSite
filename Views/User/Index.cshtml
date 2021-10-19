@@ -1,0 +1,397 @@
+﻿@model CompanyWebSiteCore.ModelsView.CompanyDataModelView
+@inject CompanyWebSiteCore.Resources.LocalizationService _localizer
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+<style>
+    .services .icon-box:hover {
+        box-shadow: 0 0 8px 0 rgba(0,0,0,.32);
+        border: 0;
+    }
+
+    .productsh:hover {
+        box-shadow: 0 0 4px 0 rgba(17,22,26,.16), 0 2px 4px 0 rgba(17,22,26,.08), 0 4px 8px 0 rgba(17,22,26,.08), 0 -3px #02b3e4;
+        border: solid;
+        border-width: 1px;
+        border-color: darkgrey;
+    }
+
+    .productsItmBorder {
+        border: solid;
+        border-width: 1px;
+        border-color: darkgrey;
+    }
+
+    .productsItmTextAlign {
+        text-align: center;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    input[type=text], input[type=email], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+    }
+
+    label {
+        padding: 12px 12px 12px 0;
+        display: inline-block;
+    }
+
+    input[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 70px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        /* float: none;*/
+        display: inline-block;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    .contactContainer {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .input-container {
+        display: -ms-flexbox; /* IE10 */
+        display: flex;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .icon {
+        padding: 10px;
+        background: dodgerblue;
+        color: white;
+        min-width: 50px;
+        text-align: center;
+    }
+
+    .input-field {
+        width: 100%;
+        padding: 10px;
+        outline: none;
+    }
+
+        .input-field:focus {
+            border: 2px solid dodgerblue;
+        }
+
+    /* Set a style for the submit button */
+    .btn {
+        background-color: dodgerblue;
+        color: white;
+        padding: 15px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
+
+        .btn:hover {
+            opacity: 1;
+        }
+
+    #home {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        background: url("../img/hero-bg.jpg") top center;
+        background-size: cover;
+        position: relative;
+        margin: 0;
+    }
+
+        #home h1 {
+            margin-top: 150px;
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 72px;
+            color: #124265;
+            font-family: "Poppins", sans-serif;
+        }
+
+        #home h2 {
+            color: #5e5e5e;
+            margin: 70px;
+            font-size: 22px;
+        }
+
+        #home:before {
+            content: "";
+            /* background: rgba(255, 255, 255, 0.8);*/
+            position: absolute;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: "Raleway", sans-serif;
+    }
+
+    .servicesFexedSize {
+        width: 300px; /* or whatever width you want. */
+        height: 400Px;
+        min-width: 300px; /* or whatever width you want. */
+        max-height: 400px;
+    }
+
+    .servicesIcon {
+        color: darkcyan;
+        text-shadow: 1px 1px 1px #ccc;
+        font-size: 7em;
+    }
+</style>
+<!-- ======= Hero Section =======  '/HomeBackGImage/HomeBackGImageFile.jpg'    -->
+<section id="home" class="d-flex align-items-center" style="background: url('@Url.Content("/HomeBackGImage/" + Model.HomeBackGImage)') top center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        opacity: 1;
+    ">
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-center">
+            <div class="col-xl-7 col-lg-9 text-center">
+                <h1>@Model.WelecomePageTitle</h1>
+                <h2 style="min-width:400px;">@Model.WelecomePageDescription</h2>
+            </div>
+        </div>
+    </div>
+</section><!-- End Hero -->
+
+<main id="main">
+    <!-- ======= About Section ======= -->
+    <section id="about-video" class="about-video" style="margin:0">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2>@_localizer.GetLocalizedHtmlString("aboutMenu")</h2>
+                <p>@Model.AboutPageHeader</p>
+
+            </div>
+            <div class="row">
+                <div class="col-lg-6 pt-3 pt-lg-0 content" data-aos="fade-right" data-aos-delay="100">
+                    <p>
+                        @Model.AboutPageDescreption
+
+                    </p>
+                </div>
+
+                <div class="col-lg-6 video-box align-self-baseline" data-aos="fade-left" data-aos-delay="100">
+                    <img src="~/CompanyImages/@Model.BackGImage" class="img-fluid" alt="">
+                    @*<a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>*@
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>@_localizer.GetLocalizedHtmlString("servicesMenu")</h2>
+                <p> @Model.ServicesTitleDescreption</p>
+            </div>
+
+            <div class="row">
+                @foreach (var item in Model.ServicesLst)
+                {
+                    <div class="col-lg-4 col-md-6 d align-items  mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="300" style="padding-top:20px">
+                        <div class="icon-box" style="padding-top:20px">
+                            <i class="@item.ServiceIcon servicesIcon" style=" padding-top: 20px ;font-family: 'FontAwesome', Helvetica;"></i>
+                            <h4>@item.ServiceName</h4>
+                            <p style="margin-top:5px">@item.ServiceTitleDescreption</p>
+                            @*<button class="btn btn-get-started" style="margin-top:70px" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover"> تفاصيل</button>*@
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </section><!-- End Sevices Section -->
+    <!-- ======= products Section ======= -->
+    <section id="products" class="d-flex align-items-center">
+        <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+            <div class="section-title">
+                <h2>@_localizer.GetLocalizedHtmlString("productsMenu")</h2>
+                <p>@Model.ProductsTitleDescreption</p>
+            </div>
+
+
+            <div class="row icon-boxes">
+                @foreach (var item in Model.ProductsLst)
+                {
+                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 productsh productsItmTextAlign" data-aos="zoom-in" data-aos-delay="300" style="margin-top:50px">
+                        <div class="icon-box">
+                            <img src="~/ProductImages/@item.ProductImgPath" class="img-fluid" alt="" style="height:200px">
+                            <h4 class="title"><a href="">@item.ProductName</a></h4>
+                            <p class="description">@item.ProductDescreption</p>
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients section-bg">
+        <div class="container">
+            <div class="section-title">
+                <h2>@_localizer.GetLocalizedHtmlString("clientsMenu")</h2>
+                <p>@Model.ClientsTitleDescreption</p>
+            </div>
+            <div class="row">
+                @foreach (var item in Model.CustomersLst)
+                {
+                    
+                    <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
+                        <img src="~/CustomersImages/@item.CustomerImgPath" class="img-fluid" alt="">
+                    </div>
+
+                }
+
+
+
+
+                @*<div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
+                    <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
+                    <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
+                    <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
+                    <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
+                    <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
+                    <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
+                </div>*@
+
+            </div>
+
+        </div>
+    </section><!-- End Clients Section -->
+    <!-- ======= Contact Section ======= -->
+    <section id="contact">
+        <div class="">
+            <div class="section-title">
+                <h2>@_localizer.GetLocalizedHtmlString("ContactBtn")</h2>
+                <p>@Model.ContactTitleDescreption</p>
+            </div>
+            <div class="justify-content-center" style="max-width:1000px;margin:100px;">
+                <div class="form-row">
+                    <div class="col-md-7">
+                        <div class="input-container">
+                            <i class="fa fa-text-width icon"></i>
+                            <input class="input-field" type="text" placeholder="@_localizer.GetLocalizedHtmlString("FirstName")" name="usrnm">
+                        </div>
+                        <div class="input-container">
+                            <i class="fa fa-text-width icon"></i>
+                            <input class="input-field" type="text" placeholder="@_localizer.GetLocalizedHtmlString("LastName")" name="usrnm">
+                        </div>
+
+                        <div class="input-container">
+                            <i class="fa fa-envelope icon"></i>
+                            <input id="email" class="input-field" type="text" placeholder="@_localizer.GetLocalizedHtmlString("EmailAddress")" name="email">
+                        </div>
+
+                        <div class="input-container">
+                            <i class="fa fa-file-text icon"></i>
+                            <textarea class="input-field" placeholder="@_localizer.GetLocalizedHtmlString("Subject")" id="Subjectid"></textarea>
+                        </div>
+                        <div class="input-container">
+                            <i class="fa fa-file-text icon"></i>
+                            <textarea class="input-field" placeholder="محتوي الرسالة" id="bodyid"></textarea>
+                        </div>
+
+                        <button type="button" class="btn" id="sendbtn">@_localizer.GetLocalizedHtmlString("EmailBtn")</button>
+                    </div>
+                    <div class="col" style="margin-right:100px">
+                        <p id=""><i class="icofont-location-pin"></i> <strong>@_localizer.GetLocalizedHtmlString("Address"):</strong>@Model.Address</p>
+                        <p id=""><i class="ri-phone-fill"></i> <strong>@_localizer.GetLocalizedHtmlString("Phone"):</strong>@Model.Phone</p>
+                        <p id=""><i class="icofont-mobile-phone"> </i><strong>@_localizer.GetLocalizedHtmlString("Mobile"):</strong>@Model.Mobile</p>
+                        <p id=""><i class="icofont-fax"></i> <strong>@_localizer.GetLocalizedHtmlString("Fax"):</strong>@Model.Fax</p>
+                        <p id=""><i class="icofont-email"></i> <strong>@_localizer.GetLocalizedHtmlString("Email"):</strong>@Model.Email</p>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Contact Section -->
+
+
+</main>
+<script>
+    //import { NULL } from "node-sass";
+
+    $(document).ready(function () {
+        $("#sendbtn").click(function () {
+            debugger
+            var from = $("#email").val();
+            var Subject = $("#Subjectid").val();
+            var bodyid = $("#bodyid").val();
+            if (from != null && from != "" && Subject != null && Subject != "" && bodyid != null && bodyid != "") {
+                $.ajax({
+                    url: '/User/SendEmail',
+                    type: 'post',
+                    data: { "from": from, "Subject": Subject, "bodyid": bodyid},
+                    success: function (response) {
+                        alert("تم الارسال");
+                        $("#email").val = "";
+                        $("#Subjectid").val = "";
+                        $("#bodyid").val = "";
+                    },
+                    failure: function (response) {
+                       
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+        });
+    });
+
+</script>

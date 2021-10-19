@@ -1,0 +1,216 @@
+﻿@model CompanyWebSiteCore.ModelsView.CompanyDataModelView
+@inject CompanyWebSiteCore.Resources.LocalizationService _localizer
+
+@{
+    ViewData["Title"] = @_localizer.GetLocalizedHtmlString("CompanyPageEditHeder");
+}
+
+<h1>@_localizer.GetLocalizedHtmlString("CompanyPageEditHeder")</h1>
+
+<hr />
+<div class="row">
+
+    <form asp-action="Edit" enctype="multipart/form-data">
+        <div class="form-row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group col-md-6">
+                <label asp-for="id" class="control-label"></label>
+                <input asp-for="id" class="form-control" />
+                <span asp-validation-for="id" class="text-danger"></span>
+            </div>*@
+            <div class="form-group col-md-6">
+                <label asp-for="CompanyName" class="control-label font-weight-bold"></label>
+                <input asp-for="CompanyName" class="form-control" />
+                <span asp-validation-for="CompanyName" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="CompanyNameEn" class="control-label font-weight-bold"></label>
+                <input asp-for="CompanyNameEn" class="form-control" />
+                <span asp-validation-for="CompanyNameEn" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Address" class="control-label font-weight-bold"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="AddressEn" class="control-label font-weight-bold"></label>
+                <input asp-for="AddressEn" class="form-control" />
+                <span asp-validation-for="AddressEn" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="Phone" class="control-label font-weight-bold"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Mobile" class="control-label font-weight-bold"></label>
+                <input asp-for="Mobile" class="form-control" />
+                <span asp-validation-for="Mobile" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Fax" class="control-label font-weight-bold"></label>
+                <input asp-for="Fax" class="form-control" />
+                <span asp-validation-for="Fax" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Email" class="control-label font-weight-bold"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="FaceBookLink" class="control-label font-weight-bold"></label>
+                <input asp-for="FaceBookLink" class="form-control" />
+                <span asp-validation-for="FaceBookLink" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="TwitterLink" class="control-label font-weight-bold"></label>
+                <input asp-for="TwitterLink" class="form-control" />
+                <span asp-validation-for="TwitterLink" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="InstgramLink" class="control-label font-weight-bold"></label>
+                <input asp-for="InstgramLink" class="form-control" />
+                <span asp-validation-for="InstgramLink" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="LinkedinLink" class="control-label font-weight-bold"></label>
+                <input asp-for="LinkedinLink" class="form-control" />
+                <span asp-validation-for="LinkedinLink" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="WelecomePageTitle" class="control-label font-weight-bold"></label>
+                <input asp-for="WelecomePageTitle" class="form-control" />
+                <span asp-validation-for="WelecomePageTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="WelecomePageTitleEn" class="control-label font-weight-bold"></label>
+                <input asp-for="WelecomePageTitleEn" class="form-control" />
+                <span asp-validation-for="WelecomePageTitleEn" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="WelecomePageDescription" class="control-label font-weight-bold"></label>
+                <input asp-for="WelecomePageDescription" class="form-control" />
+                <span asp-validation-for="WelecomePageDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="WelecomePageDescriptionEn" class="control-label font-weight-bold"></label>
+                <input asp-for="WelecomePageDescriptionEn" class="form-control" />
+                <span asp-validation-for="WelecomePageDescriptionEn" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="AboutPageHeader" class="control-label font-weight-bold"></label>
+                <input asp-for="AboutPageHeader" class="form-control" />
+                <span asp-validation-for="AboutPageHeader" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="AboutPageHeaderEn" class="control-label font-weight-bold"></label>
+                <input asp-for="AboutPageHeaderEn" class="form-control" />
+                <span asp-validation-for="AboutPageHeaderEn" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="AboutPageDescreption" class="control-label font-weight-bold"></label>
+                <input asp-for="AboutPageDescreption" class="form-control" />
+                <span asp-validation-for="AboutPageDescreption" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="AboutPageDescreptionEn" class="control-label font-weight-bold"></label>
+                <input asp-for="AboutPageDescreptionEn" class="form-control" />
+                <span asp-validation-for="AboutPageDescreptionEn" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="FooterAboutDescreption" class="control-label font-weight-bold"></label>
+                <input asp-for="FooterAboutDescreption" class="form-control" />
+                <span asp-validation-for="FooterAboutDescreption" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="FooterAboutDescreptionEn" class="control-label font-weight-bold"></label>
+                <input asp-for="FooterAboutDescreptionEn" class="form-control" />
+                <span asp-validation-for="FooterAboutDescreptionEn" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="ServicesTitleDescreption" class="control-label font-weight-bold"></label>
+                <input asp-for="ServicesTitleDescreption" class="form-control" />
+                <span asp-validation-for="ServicesTitleDescreption" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="ServicesTitleDescreptionEn" class="control-label font-weight-bold"></label>
+                <input asp-for="ServicesTitleDescreptionEn" class="form-control" />
+                <span asp-validation-for="ServicesTitleDescreptionEn" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="ProductsTitleDescreption" class="control-label font-weight-bold"></label>
+                <input asp-for="ProductsTitleDescreption" class="form-control" />
+                <span asp-validation-for="ProductsTitleDescreption" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="ProductsTitleDescreptionEn" class="control-label font-weight-bold"></label>
+                <input asp-for="ProductsTitleDescreptionEn" class="form-control" />
+                <span asp-validation-for="ProductsTitleDescreptionEn" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="ClientsTitleDescreption" class="control-label font-weight-bold"></label>
+                <input asp-for="ClientsTitleDescreption" class="form-control" />
+                <span asp-validation-for="ClientsTitleDescreption" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="ClientsTitleDescreptionEn" class="control-label font-weight-bold"></label>
+                <input asp-for="ClientsTitleDescreptionEn" class="form-control" />
+                <span asp-validation-for="ClientsTitleDescreptionEn" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="ContactTitleDescreption" class="control-label font-weight-bold"></label>
+                <input asp-for="ContactTitleDescreption" class="form-control" />
+                <span asp-validation-for="ContactTitleDescreption" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="ContactTitleDescreptionEn" class="control-label font-weight-bold"></label>
+                <input asp-for="ContactTitleDescreptionEn" class="form-control" />
+                <span asp-validation-for="ContactTitleDescreptionEn" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="form-group col-md-6">
+                <label asp-for="LogoImageFile" class="control-label font-weight-bold"></label>
+                <input type="file" name="LogoImageFile" asp-for="LogoImageFile" class="form-control" />
+                <span asp-validation-for="LogoImageFile" class="text-danger"></span>
+                <img src="~/CompanyImages/@Model.LogoImage" style="height:60px; width: 60px;" class="img-thumbnail" />
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="HomeBackGImageFile" class="control-label font-weight-bold"></label>
+                <input type="file" name="HomeBackGImageFile" asp-for="HomeBackGImageFile" class="form-control" />
+                <span asp-validation-for="HomeBackGImage" class="text-danger"></span>
+                <img src="~/HomeBackGImage/@Model.HomeBackGImage" style="height:60px; width: 60px;" class="img-thumbnail" />
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="BackGImageFile" class="control-label font-weight-bold"></label>
+                <input type="file" name="BackGImageFile" asp-for="BackGImageFile" class="form-control" />
+                <span asp-validation-for="BackGImageFile" class="text-danger"></span>
+                <img src="~/CompanyImages/@Model.BackGImage" style="height:60px; width: 60px;" class="img-thumbnail" />
+            </div>
+
+
+
+            <div class="form-group" hidden>
+                <input name="BackGImage" asp-for="BackGImage" class="form-control" hidden />
+                <input name="LogoImage" asp-for="LogoImage" class="form-control" hidden />
+                <input name="HomeBackGImage" asp-for="HomeBackGImage" class="form-control" hidden />
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="@_localizer.GetLocalizedHtmlString("SaveBtn")" class="btn btn-primary" />
+            <a asp-action="Index" class="btn btn-info">@_localizer.GetLocalizedHtmlString("BackBtn")</a>
+        </div>
+    </form>
+
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,577 @@
+﻿
+@model CompanyWebSiteCore.ModelsView.CompanyDataModelView
+@inject CompanyWebSiteCore.Resources.LocalizationService _localizer
+
+<head>
+
+
+    @{Layout = "~/Views/Shared/_MambaLayout.cshtml";}
+    <style>
+        .btn {
+            background-color: dodgerblue;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            cursor: pointer;
+            width: 30%;
+            opacity: 0.9;
+        }
+        a ,p{
+            font-weight:bold;
+        }
+    </style>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+</head>
+ 
+    <!-- ======= Hero Section ======= -->
+    <section id="hero">
+        <div class="hero-container">
+            <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+                <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+                <div class="carousel-inner" role="listbox">
+                    @{
+                        int i = 0;
+                        @foreach (var item in Model.ProductsLst)
+                        {
+                            if (i == 0)
+                            {
+                                <div class="carousel-item active" style="background-image: url('@Url.Content("/ProductImages/" + item.ProductImgPath)');">
+                                    <div class="carousel-container">
+                                        <div class="carousel-content container">
+                                            <h2 class="animate__animated animate__fadeInDown">@item.ProductName </h2>
+                                            <p class="animate__animated animate__fadeInUp">@item.ProductDescreption</p>
+                                            <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            }
+                            else
+                            {
+                                <div class="carousel-item" style="background-image: url('@Url.Content("/ProductImages/" + item.ProductImgPath)');">
+                                    <div class="carousel-container">
+                                        <div class="carousel-content container">
+                                            <h2 class="animate__animated animate__fadeInDown">@item.ProductName </h2>
+                                            <p class="animate__animated animate__fadeInUp">@item.ProductDescreption</p>
+                                            <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            i++;
+                        }
+                       
+                    }              
+
+                </div>
+
+                <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+                </a>
+                <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+                </a>
+
+            </div>
+        </div>
+    </section><!-- End Hero -->
+
+    <main id="main">
+
+        <!-- ======= About Us Section ======= -->
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+
+                <div class="row no-gutters">
+                    <div class="col-lg-6 video-box">
+                        <img src="~/CompanyImages/@Model.BackGImage" class="img-fluid" alt="">
+                        <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+                    </div>
+
+                    <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
+
+                        <div class="section-title2">
+                            <h2>@_localizer.GetLocalizedHtmlString("aboutMenu")</h2>
+                            <p>@Model.AboutPageDescreption.</p>
+                        </div>
+
+                        <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                            <div class="icon">
+                                <i class="bx bx-fingerprint"></i>
+                            </div>
+                            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+                            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                        </div>
+
+                        <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                            <div class="icon"><i class="bx bx-gift"></i></div>
+                            <h4 class="title"><a href="">Nemo Enim</a></h4>
+                            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End About Us Section -->
+        <!-- ======= About Lists Section ======= -->
+        <!-- ======= Counts Section ======= -->
+        <section class="counts section-bg">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up">
+                        <div class="count-box">
+                            <i class="bi bi-simple-smile" style="color: #20b38e;"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Happy Clients</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="count-box">
+                            <i class="bi bi-document-folder" style="color: #c042ff;"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Projects</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="400">
+                        <div class="count-box">
+                            <i class="bi bi-live-support" style="color: #46d1ff;"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Hours Of Support</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="600">
+                        <div class="count-box">
+                            <i class="bi bi-users-alt-5" style="color: #ffb459;"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Hard Workers</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End Counts Section -->
+        <!-- ======= Services Section ======= -->
+        <section id="services" class="services">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>@_localizer.GetLocalizedHtmlString("servicesMenu")</h2>
+                    <p> @Model.ServicesTitleDescreption</p>
+                </div>
+
+                <div class="row">
+                    @foreach (var item in Model.ServicesLst)
+                    {
+                        <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+                            <div class="icon" style="font-family: 'FontAwesome', sans-serif;"><i class="@item.ServiceIcon"></i></div>
+                            <h4 class="title"><a href="">@item.ServiceName</a></h4>
+                            <p class="description text-center">@item.ServiceTitleDescreption</p>
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+        </section><!-- End Services Section -->
+        <!-- ======= Our Portfolio Section ======= -->
+        <section id="portfolio" class="portfolio section-bg">
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="section-title">
+                    <h2>@_localizer.GetLocalizedHtmlString("productsMenu")</h2>
+                    <p>@Model.ProductsTitleDescreption</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul id="portfolio-flters">
+                            <li data-filter="*" class="filter-active">All</li>
+                            <li data-filter=".filter-app">App</li>
+                            <li data-filter=".filter-card">Card</li>
+                            <li data-filter=".filter-web">Web</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row portfolio-container">
+                    @foreach (var item in Model.ProductsLst)
+                    {
+                        @*<div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0 productsh productsItmTextAlign" data-aos="zoom-in" data-aos-delay="300" style="margin-top:50px">
+                            <div class="icon-box">
+                                <img src="~/ProductImages/@item.ProductImgPath" class="img-fluid" alt="" style="height:200px">
+                                <h4 class="title"><a href="">@item.ProductName</a></h4>
+                                <p class="description">@item.ProductDescreption</p>
+                            </div>
+                        </div>*@
+
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                            <div class="portfolio-wrap">
+                                <img src="~/ProductImages/@item.ProductImgPath" class="img-fluid" alt="" style="height:200px;width:100%">
+                                <div class="portfolio-info">
+                                    <h4>@item.ProductName</h4>
+                                    <p>@item.ProductDescreption</p>
+                                    <div class="portfolio-links">
+                                        <a href="assets2/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
+                                        <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+
+
+
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                        <div class="portfolio-wrap">
+                            <img src="assets2/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>App 1</h4>
+                                <p>App</p>
+                                <div class="portfolio-links">
+                                    <a href="assets2/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
+                                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                        <div class="portfolio-wrap">
+                            <img src="assets2/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Web 3</h4>
+                                <p>Web</p>
+                                <div class="portfolio-links">
+                                    <a href="assets2/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bi bi-plus"></i></a>
+                                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                        <div class="portfolio-wrap">
+                            <img src="assets2/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>App 2</h4>
+                                <p>App</p>
+                                <div class="portfolio-links">
+                                    <a href="assets2/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bi bi-plus"></i></a>
+                                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                        <div class="portfolio-wrap">
+                            <img src="assets2/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Card 2</h4>
+                                <p>Card</p>
+                                <div class="portfolio-links">
+                                    <a href="assets2/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bi bi-plus"></i></a>
+                                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                        <div class="portfolio-wrap">
+                            <img src="assets2/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Web 2</h4>
+                                <p>Web</p>
+                                <div class="portfolio-links">
+                                    <a href="assets2/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bi bi-plus"></i></a>
+                                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                        <div class="portfolio-wrap">
+                            <img src="assets2/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>App 3</h4>
+                                <p>App</p>
+                                <div class="portfolio-links">
+                                    <a href="assets2/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bi bi-plus"></i></a>
+                                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                        <div class="portfolio-wrap">
+                            <img src="assets2/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Card 1</h4>
+                                <p>Card</p>
+                                <div class="portfolio-links">
+                                    <a href="assets2/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bi bi-plus"></i></a>
+                                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                        <div class="portfolio-wrap">
+                            <img src="assets2/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Card 3</h4>
+                                <p>Card</p>
+                                <div class="portfolio-links">
+                                    <a href="assets2/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bi bi-plus"></i></a>
+                                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                        <div class="portfolio-wrap">
+                            <img src="assets2/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Web 3</h4>
+                                <p>Web</p>
+                                <div class="portfolio-links">
+                                    <a href="assets2/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bi bi-plus"></i></a>
+                                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End Our Portfolio Section -->
+
+        <section id="clients" class="clients section-bg">
+            <div class="container">
+                <div class="section-title">
+                    <h2>@_localizer.GetLocalizedHtmlString("clientsMenu")</h2>
+                    <p>@Model.ClientsTitleDescreption</p>
+                </div>
+                <div class="row">
+                    @foreach (var item in Model.CustomersLst)
+                    {
+
+                        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                            <img src="~/CustomersImages/@item.CustomerImgPath" class="img-fluid" style="height:100%;">
+                        </div>
+
+                    }             
+
+                </div>
+
+            </div>
+        </section><!-- End Clients Section -->
+        <!-- ======= Our Team Section ======= -->
+        <section id="team" class="team">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>@_localizer.GetLocalizedHtmlString("team")</h2>
+                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem.</p>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
+                        <div class="member">
+                            <div class="pic"><img src="assets2/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+                            <div class="member-info">
+                                <h4>Walter White</h4>
+                                <span>Chief Executive Officer</span>
+                                <div class="social">
+                                    <a href=""><i class="bi bi-twitter"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="member">
+                            <div class="pic"><img src="assets2/img/team/team-2.jpg" class="img-fluid" alt=""></div>
+                            <div class="member-info">
+                                <h4>Sarah Jhonson</h4>
+                                <span>Product Manager</span>
+                                <div class="social">
+                                    <a href=""><i class="bi bi-twitter"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="member">
+                            <div class="pic"><img src="assets2/img/team/team-3.jpg" class="img-fluid" alt=""></div>
+                            <div class="member-info">
+                                <h4>William Anderson</h4>
+                                <span>CTO</span>
+                                <div class="social">
+                                    <a href=""><i class="bi bi-twitter"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="member">
+                            <div class="pic"><img src="assets2/img/team/team-4.jpg" class="img-fluid" alt=""></div>
+                            <div class="member-info">
+                                <h4>Amanda Jepson</h4>
+                                <span>Accountant</span>
+                                <div class="social">
+                                    <a href=""><i class="bi bi-twitter"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End Our Team Section -->
+        <!-- ======= Frequently Asked Questions Section ======= -->
+        <!-- ======= Contact Us Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>@_localizer.GetLocalizedHtmlString("ContactBtn")</h2>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-3 d-flex" data-aos="fade-up">
+                        <div class="info-box">
+                            <i class="bx bx-map"></i>
+                            <h3>@_localizer.GetLocalizedHtmlString("Address")</h3>
+                            <p>@Model.Address</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 d-flex" data-aos="fade-up" data-aos-delay="100">
+                        <div class="info-box">
+                            <i class="bx bx-envelope"></i>
+                            <h3>@_localizer.GetLocalizedHtmlString("Email")</h3>
+                            <p>@Model.Email</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 d-flex" data-aos="fade-up" data-aos-delay="200">
+                        <div class="info-box ">
+                            <i class="bx bx-mobile-alt"></i>
+                            <h3>@_localizer.GetLocalizedHtmlString("Mobile")</h3>
+                            <p>@Model.Mobile</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 d-flex" data-aos="fade-up" data-aos-delay="200">
+                        <div class="info-box ">
+                            <i class="bx bx-phone-call"></i>
+                            <h3>@_localizer.GetLocalizedHtmlString("Phone")</h3>
+                            <p>@Model.Phone</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
+                        <form  role="form" class="php-email-form">
+                            <div class="row">
+                                <div class="col-lg-6 form-group">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="@_localizer.GetLocalizedHtmlString("FirstName")" required>
+                                </div>
+                                <div class="col-lg-6 form-group">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="@_localizer.GetLocalizedHtmlString("EmailAddress")" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="subject" id="Subjectid" placeholder="@_localizer.GetLocalizedHtmlString("Subject")" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="bodyid" class="form-control" name="message" rows="5" placeholder="محتوي الرسالة" required></textarea>
+                            </div>
+                            <div class="my-3">
+                                <div class="loading">Loading</div>
+                                <div id="errorid" class="error-message"></div>
+                                <div id="sentid" class="sent-message">Your message has been sent. Thank you!</div>
+                            </div>
+                            <div class=""><button class="text-center btn" type="button" id="sendbtn">@_localizer.GetLocalizedHtmlString("EmailBtn")</button></div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End Contact Us Section -->
+
+    </main><!-- End #main -->
+    <script>
+    //import { NULL } from "node-sass";
+
+    $(document).ready(function () {
+        $("#sendbtn").click(function () {
+            debugger
+            var from = $("#email").val();
+            var Subject = $("#Subjectid").val();
+            var bodyid = $("#bodyid").val();
+            if (from != null && from != "" && Subject != null && Subject != "" && bodyid != null && bodyid != "") {
+                $.ajax({
+                    url: '/User/SendEmail',
+                    type: 'post',
+                    data: { "from": from, "Subject": Subject, "bodyid": bodyid},
+                    success: function (response) {
+                        //alert("تم الارسال");
+                        $('#sentid').show();
+                        $("#email").val = "";
+                        $("#Subjectid").val = "";
+                        $("#bodyid").val = "";
+                    },
+                    failure: function (response) {
+                        $('#errorid').show();
+                        //alert(response.responseText);
+                    },
+                    error: function (response) {
+                        $('#errorid').show();
+                        //alert(response.responseText);
+                    }
+                });
+            }
+        });
+    });
+
+    </script>
+
+
+
+

@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+@inject CompanyWebSiteCore.Resources.LocalizationService _localizer
+<html dir="@(System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft? "rtl" : "ltr")">
+<head>
+
+    <style>
+        .navbar {
+            margin-bottom: 0;
+            background-color: #f4511e;
+            z-index: 9999;
+            border: 0;
+            font-size: 14px !important;
+            line-height: 1.42857143 !important;
+            letter-spacing: 1px;
+            border-radius: 0;
+        }
+
+            .navbar li a, .navbar .navbar-light {
+                color: dodgerblue !important;
+                font-size: 1.3em !important;
+                font-family: "Six Caps";
+                font-weight: bold;
+            }
+
+        .navbar-nav li a:hover, .navbar-nav li.active a {
+            color: #f4511e !important;
+            background-color: #fff !important;
+        }
+
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #330033 !important;
+        }
+        .navbarIcon {
+          /*  color:dodgerblue !important;*/
+            font-size: 1.5em !important;
+            font-family: "Six Caps";
+            font-weight: bold;
+        }
+
+        .footer-basic {
+            padding: 40px 0;
+            background-color: #ffffff;
+            color: #4b4c4d;
+        }
+
+            .footer-basic ul {
+                padding: 0;
+                list-style: none;
+                text-align: center;
+                font-size: 18px;
+                line-height: 1.6;
+                margin-bottom: 0;
+            }
+
+            .footer-basic li {
+                padding: 0 10px;
+            }
+
+            .footer-basic ul a {
+                color: inherit;
+                text-decoration: none;
+                opacity: 0.8;
+            }
+
+                .footer-basic ul a:hover {
+                    opacity: 1;
+                }
+
+            .footer-basic .social {
+                text-align: center;
+                padding-bottom: 25px;
+            }
+
+                .footer-basic .social > a {
+                    font-size: 24px;
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    display: inline-block;
+                    text-align: center;
+                    border-radius: 50%;
+                    border: 1px solid #ccc;
+                    margin: 0 8px;
+                    color: inherit;
+                    opacity: 0.8;
+                }
+
+                    .footer-basic .social > a:hover {
+                        opacity: 1;
+                    }
+
+            .footer-basic .copyright {
+                margin-top: 15px;
+                text-align: center;
+                font-size: 13px;
+                color: #aaa;
+                margin-bottom: 0;
+            }
+
+        .sosialMediaIcon {
+            border: ridge;
+            color: cornflowerblue;
+            text-shadow: 1px 1px 1px #ccc;
+            font-size: 1.5em;
+        }
+    </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CompanyWebSiteCore</title>
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+   
+    @*<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">*@
+    @*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">*@
+    @*https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css*@
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">*@
+
+    <script src="https://kit.fontawesome.com/5c2ee5c86a.js" crossorigin="anonymous"></script>  
+
+
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    @if (System.Threading.Thread.CurrentThread.CurrentCulture.Name == "en")
+    {
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    }
+    else
+    {
+        <link href="~/bootstrap-4.3.1-rtl/dist/css/rtl/bootstrap.css" rel="stylesheet" />
+
+    }
+
+
+</head>
+<body>    
+    <header class="fixed-top">       
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>  
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <img id="ConpanyLogo" src="" href="#hero" style="height: 60px; width: 60px;" class="img-thumbnail" />
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#home"><i class="fas fa-home navbarIcon"></i> @_localizer.GetLocalizedHtmlString("homeMenu")</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#about-video"><i class="fas fa-info-circle navbarIcon"></i> @_localizer.GetLocalizedHtmlString("aboutMenu")</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#services"><i class="fas fa-users-cog navbarIcon"></i> @_localizer.GetLocalizedHtmlString("servicesMenu")</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#products"><i class="fas fa-box navbarIcon"></i> @_localizer.GetLocalizedHtmlString("productsMenu")</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#clients"><i class="fas fa-user-friends navbarIcon"></i> @_localizer.GetLocalizedHtmlString("clientsMenu")</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#contact"><i class="fas fa-headset navbarIcon"></i> @_localizer.GetLocalizedHtmlString("contactMenu")</a>
+                        </li>
+                        @*<li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="CompanyData" asp-action="Index">Admin</a>
+                        </li>*@
+
+                    </ul>
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            @await Html.PartialAsync("_SetLanguagePartial")
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-basic" >
+        <main role="main" class="pb-3" style="margin:75px 0px 0px">
+            @RenderBody()
+        </main>
+    </div>
+
+    <div class="footer-basic" style="background-color:lavender;">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 footer-about wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+                        <h3>@_localizer.GetLocalizedHtmlString("aboutMenu")</h3>
+                        <p id="aboutId">
+
+                        </p>
+                    </div>
+                    <div class="col-md-4 offset-md-1 footer-contact wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
+                        <h3>@_localizer.GetLocalizedHtmlString("ContactBtn")</h3>
+                        <p id="adressID"><i class="icofont-location-pin"></i> <strong>@_localizer.GetLocalizedHtmlString("Address"):</strong></p>
+                        <p id="PhoneID"><i class="ri-phone-fill"></i> <strong>@_localizer.GetLocalizedHtmlString("Phone"):</strong></p>
+                        <p id="MobileID"><i class="icofont-mobile-phone"> </i><strong>@_localizer.GetLocalizedHtmlString("Mobile"):</strong> </p>
+                        <p id="FaxID"><i class="icofont-fax"></i> <strong>@_localizer.GetLocalizedHtmlString("Fax"):</strong> </p>
+                        <p id="EmailID"><i class="icofont-email"></i> <strong>@_localizer.GetLocalizedHtmlString("Email"):</strong> </p>
+
+                    </div>
+                    <div class="col-md-4 footer-links wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+                        <div class="row">
+                            <div class="col">
+                                <h3>@_localizer.GetLocalizedHtmlString("Links")</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><i class="fa fa-home"></i> <a class="scroll-link" href="#home">@_localizer.GetLocalizedHtmlString("homeMenu")</a></p>
+                                <p><i class="fas fa-info-circle"></i> <a href="#about-video">@_localizer.GetLocalizedHtmlString("aboutMenu")</a></p>
+                                <p><i class="fas fa-users-cog"></i> <a href="#services">@_localizer.GetLocalizedHtmlString("servicesMenu")</a></p>
+                                <p><i class="fas fa-box"></i> <a href="#clients">@_localizer.GetLocalizedHtmlString("productsMenu")</a></p>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="social ">
+                <a href="#" id="atwitter"><i class="bx bxl-twitter"></i></a>@*sosialMediaIcon*@
+                <a href="#" id="afacebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" id="ainstagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" id="alinkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+
+            <p class="copyright">Company Name © 2021</p>
+        </footer>
+    </div>
+
+    <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+    <div id="preloader"></div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <!-- Vendor JS Files -->
+    @*<script src="assets/vendor/jquery/jquery.min.js"></script>*@
+    @*<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>*@
+    <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="assets/vendor/counterup/counterup.min.js"></script>
+    <script src="assets/vendor/venobox/venobox.min.js"></script>
+    <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+
+
+
+
+
+
+    @if (System.Threading.Thread.CurrentThread.CurrentCulture.Name == "en")
+    {
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    }
+    else
+    {
+        <script src="~/bootstrap-4.3.1-rtl/dist/js/bootstrap.bundle.min.js"></script>
+    }
+    @RenderSection("Scripts", required: false)
+</body>
+
+
+</html>
+<script>
+        $(document).ready(function () {
+
+            $.ajax({
+                url: '/CompanyData/GetConpanyLogo',
+                type: 'GET',
+                success: function (data) {
+                    debugger
+                    $("#ConpanyLogo").attr("src", "/CompanyImages/" + data.LogoImage);
+
+                    $("#atwitter").attr("href",  data.TwitterLink);
+                    $("#afacebook").attr("href",  data.FaceBookLink);
+                    $("#ainstagram").attr("href",  data.InstgramLink);
+                    $("#alinkedin").attr("href", data.LinkedinLink);
+
+                    $("#compName").html(data.CompanyName);
+                    $("#adressID").append(data.Address);
+                    $("#PhoneID").append(data.Phone);
+                    $("#MobileID").append(data.Mobile);
+                    $("#FaxID").append(data.Fax);
+                    $("#EmailID").append(data.Email);
+                    $("#aboutId").append(data.FooterAboutDescreption);
+                   
+
+                    if (document.documentElement.dir.toLowerCase() == "ltr") {
+                        $("#compName").html(data.CompanyNameEn);
+                    }
+                    if (document.documentElement.dir.toLowerCase() == "rtl") {
+                        $("#compName").html(data.CompanyName);
+                    }
+                    
+                },
+
+
+            });
+        });
+
+</script>
+
